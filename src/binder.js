@@ -15,9 +15,8 @@
    * @return String      html encoded string
    */
   function enc( str ) {
-    return document.createElement( 'div' ).appendChild(
-        document.createTextNode( str ) ).parentNode.innerHTML;
-  };
+    return document.createElement( 'div' ).appendChild( document.createTextNode( str ) ).parentNode.innerHTML;
+  }
 
   /**
   * @param object   data to traverse
@@ -30,7 +29,8 @@
     if(keys.length && typeof obj ==='object'){
         return getProp(obj, keys);
     }
-    else if(obj!=undefined){
+
+    if(obj!=undefined){
       return obj;
     }
   }
@@ -62,24 +62,24 @@
   * get default display values.
   */
   function getDefaultDisplay( elem ) {
-  	var  temp_node, display = display_values[elem.nodeName];
-  	if ( display ) {
-  		return display;
-  	}
-  	temp_node = document.body.appendChild( document.createElement( elem.nodeName ) );
+    var  temp_node, display = display_values[elem.nodeName];
+    if ( display ) {
+      return display;
+    }
+    temp_node = document.body.appendChild( document.createElement( elem.nodeName ) );
     if(!!window.getComputedStyle){
       display = window.getComputedStyle(temp_node).display;
     }
     else{
-      display = temp_node.currentStyle['display']
+      display = temp_node.currentStyle.display;
     }
     if ( display === "none" ) {
-  		display = "block";
-  	}
-  	temp_node.parentNode.removeChild( temp_node );
-  	display_values[elem.nodeName] = display;
+      display = "block";
+    }
+    temp_node.parentNode.removeChild( temp_node );
+    display_values[elem.nodeName] = display;
 
-  	return display;
+    return display;
   }
 
   function showElement(element){
@@ -91,8 +91,7 @@
   }
 
   function eachNode(nodeList, func){
-    var count;
-    for(count=0;count<nodeList.length;++count){
+    for (var count=0; count < nodeList.length; count ++){
       func(nodeList[count]);
     }
   }
