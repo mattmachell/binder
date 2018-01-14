@@ -1,4 +1,4 @@
-#Binder#
+# Binder
 
 A tiny library for updating dynamic data on a webpage.
 
@@ -27,7 +27,7 @@ This will update every occurrence on a page.
 
 Works will with AJAX responses or Proxy objects listening for changes.
 
-##Attributes##
+## Attributes
 
 You can update attributes rather than node content via:
 
@@ -35,7 +35,7 @@ You can update attributes rather than node content via:
 <a data-bd="items.1=href" href="/1">Tom</li>
 ```
 
-##Show/Hide##
+## Show/Hide
 You can set elements to show hide based on content:
 
 ```
@@ -43,7 +43,7 @@ You can set elements to show hide based on content:
 <li data-bd-hide-if"set:items.1">Harry</li>
 ```
 
-##Extensible##
+## Extensible
 Add triggers and their associated test evaluations to act on elements when a condition is met.
 
 ```
@@ -61,7 +61,7 @@ BINDER.registerTest('is-null', function(v){return v === null})
 ```
 
 
-##Config##
+## Config
 
 By default uses data-bd as the attribute prefix, but you can set that:
 
